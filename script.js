@@ -1,72 +1,70 @@
-let boxes= document.querySelectorAll(".box");
-let resetbtn= document.querySelector("#reset-btn");
-let newGameBtn= document.querySelector("#new-btn");
-let msgContainer= document.querySelector(".msg-container");
-let msg= document.querySelector("#msg");
-let turn0= true;
+var ms=0, s=0, m=0, h=0
+var timer
 
-const winPatterns= [
-    [0, 1, 2],
-    [0, 3, 6],
-    [0, 4, 8],
-    [1, 4, 7],
-    [2, 5, 8],
-    [2, 4, 6],
-    [3, 4, 5],
-    [6, 7, 8],
-];
-const resetGame =() => {
-    turn0= true;
-    enableBoxes();
-    msgContainer.classList.add("hide");
-};
+var display = document.querySelector(".timer-display")
+var laps= document.querySelector(".laps")
 
-boxes.forEach((box) => {
-    box.addEventListener("click", () => {
-        // console.log("box was clicked");
-        if(turn0) {
-            box.innerText= "O";
-            turn0= false;
-        } else{
-            box.innerText= "X";
-            turn0= true;
-        }
-        box.disabled= true;
-        checkWinner();
-    });
-});
-
-
-const disableBoxes= () => {
-    for(let box of boxes) {
-        box.disabled= true;
+function start(){
+    if(!timer){
+        timer= setInterval(run, 10)
     }
-};
+}
 
-const enableBoxes= () => {
-    for(let box of boxes) {
-        box.disabled= false;
-        box.innerHTML= "";
+function run(){
+    display.innerHTML = getTimer()
+    ms++
+    if(ms == 100){
+        ms = 0
+        s++
     }
-};
-const showWinner= (winner) => {
-    msg.innerText= `Congratulations, Winner is ${winner}`;
-    msgContainer.classList.remove("hide");
-    disableBoxes();
-};
-const checkWinner= () =>{
-    for(let pattern of winPatterns) {
-        let pos1Val= boxes[pattern[0]].innerText;
-        let pos2Val= boxes[pattern[1]].innerText;
-        let pos3Val= boxes[pattern[2]].innerText;
 
-        if (pos1Val != "" && pos2Val != "" && pos3Val != ""){
-            if (pos1Val === pos2Val && pos2Val === pos3Val){
-                // console.log("Winner", pos1Val);
-                showWinner(pos1Val);
-            }
-        }
+    if (s==60){
+        s=0
+        m++
     }
-};
-newGameBtn.addEventListener("click", resetGame);
-resetbtn.addEventListener("click", resetGame);
+    if(m==60){
+        m = 0
+        h++
+    }
+}
+
+function getTimer(){
+    return (h<10 ? "0" + h:h)+":"+(m<10 ? "0" + m:m) + ":" +(s<10? "0"+s:s) + " : "+(ms<10 ? "0"+ ms : ms)
+}
+
+function pause(){
+    stopTimer()
+}
+
+function stopTimer(){
+    clearInterval(timer)
+    timer = false
+}
+
+function reset(){
+    stopTimer()
+    ms = 0
+    s = 0
+    m = 0
+    h = 0
+    display.innerHTML = getTimer()
+}
+
+function restart(){
+    if(timer){
+        reset()
+        stopTimer()
+    }
+}
+
+function lap(){
+    if(timer){
+        var li = document.createElement('li')
+        li.innerHTML= getTimer()
+        laps.appendChild(li)
+    }
+}
+
+function resetLaps(){
+    laps.innerHTML=""
+}
