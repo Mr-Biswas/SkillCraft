@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>SQL</h1>
+            <ul>
+                
+                <a href="#Introduction"><li>Introduction</li></a>
+                <a href="#SQL Basic Commands"><li>SQL Basic Commands</li></a>
+                <a href="#SQL Datatypes"><li>SQL Datatypes</li></a>
+                <a href="#Database Commands"><li>Database Commands</li></a>
+                <a href="#Table Commands"><li>Table Commands</li></a>
+                <a href="#SQL Contraints"><li>SQL Contraints</li></a>
+                <a href="#SQL Key Concept"><li>SQL Key Concept</li></a>
+                <a href="#Queries"><li>Queries</li></a>
+                <a href="#SQL Clauses"><li>SQL Clauses</li></a>
+                <a href="#SQL Operators"><li>SQL Operators</li></a>
+                <a href="#SQL Views"><li>SQL Views</li></a>
+                <a href="#Contact Details"><li>Contact Details</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="Introduction">
+            <h2>Introduction</h2>
+            <article>
+                <p>SQL (Structured Query Language) is a programming language which is used to manage data stored in relational databases like MySQL, MS Access, SQL Server, Oracle.</p>
+                <p>SQL is a database computer language designed for the retrieval and management of data in a relational databases like MySQL, MS Access, SQL Server, Oracle. SQL stands for Structured Query Language. SQL was developed in the 1970s by IBM Computer Scientists.</p>
+                <p>The most important point to be noted here is that SQL is <b>case insensitive,</b> which means SELECT and Select have same meaning in SQL statement.</p>
+                <ul>
+                    <li>SQL can execute queries against a database.</li>
+                    <li>SQL can retrieve data from a database.</li>
+                    <li>SQL can insert records in a database.</li>
+                    <li>SQL can update records in a database.</li>
+                    <li>SQL can delete records from a database.</li>
+                    <li>SQL can create new databases</li>
+                    <li>SQL can create new tables in a database.</li>
+                </ul>
+               
+            </article>
+        </section>
+        <section id="SQL Basic Commands">
+            <h2>SQL Basic Commands </h2>
+            <article>
+                <p>Here is a list of standard SQL commands to interact with relational databases they are CREATE, SELECT, INSERT, UPDATE, DELETE, DROP and TRUNCATE and can be classified into the following based on their nature.</p>
+                <p><b>Data Definition Language (DDL)</b>
+                    <br>
+                    A Data Definition Language (DDL) is a computer language which is used to create and modify the structure of database objects which include tables, views, schemas.</p>
+                <p><b>Data Manipulation Language (DML)</b>
+                    <br>
+                    A Data Manipulation Language (DML) is a computer programming language which is used for adding, deleting, and modifying data in a database.
+                    </p>
+                <p><b>Data Control Language (DCL)</b>
+                    <br>
+                    Data Control Language (DCL) is a computer programming language which is used to control access to data stored in a database.
+                    </p>
+                <ul>
+                    <li>SELECT - extracts data from a database.</li>
+                    <li>UPDATE - updates data in a database.</li>
+                    <li>DELETE - deletes data from a database.</li>
+                    <li>INSERT INTO - inserts new data into a database.</li>
+                    <li>CREATE DATABASE - creates a new database.</li>
+                    <li>ALTER DATABASE - modifies a database.</li>
+                    <li>CREATE TABLE - creates a new table.</li>
+                    <li>ALTER TABLE - modifies a table.</li>
+                    <li>DROP TABLE - deletes a table.</li>
+                </ul>
+            </article>
+        </section>
+        <section id="SQL Datatypes">
+            <h2>SQL Datatypes</h2>
+            <article>
+                <p>SQL data type refers to the type of data which can be stored in a column of a database table. In a column, the user can store numeric, string, binary, etc by defining data types. For example integer data, character data, date and time data.
+                </p>
+                <p>Types of SQL Data Types
+                    <br>
+                    There are three main types of SQL data types available in any RDBMS. They are:</p>
+                <ul>
+                    <li>String</li>
+                    <li>Numeric</li>
+                    <li>Date & Time</li>
+                </ul>
+                <code>CREATE TABLE students (
+                    name varchar(20) NOT NULL,
+                    gender char(6) NOT NULL,
+                    city text NOT NULL
+                  );</code>
+            </article>
+        </section>
+        <section id="Database Commands">
+            <h2>Database Commands</h2>
+            <article>
+                <p>A database is a structured collection of data that is stored in a computer system. They are used to store and retrieve the data efficiently. Databases can be created using different query languages, and SQL is one such language.</p>
+                <!-- <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code> CREATE DATABASE DatabaseName;
+                    SHOW DATABASES;
+                    SHOW DatabaseName;
+                    DROP DATABASE DatabaseName;
+                    SHOW DATABASES;
+                    DROP DATABASE IF EXISTS DatabaseName;
+                    USE testDB;
+                    ALTER DATABASE OldDatabaseName MODIFY NAME = NewDatabaseName;
+                    SHOW DATABASES;
+                </code>
+            </article>
+        </section>
+        <section id="Table Commands">
+            <h2>Table Commands</h2>
+            <article>
+                <p>In RDBMS, Database tables are used to store the data in the form of some structures (fields and records). Here, a field is a column defining the type of data to be stored in a table and record is a row containing actual data. In simple words, we can say a Table is a <b>combination of rows and columns.</b></p>
+                <p>SQL provides various queries to interact with the data in a convenient way. We can use SQL statements to create and delete tables, inserting, updating and deleting data in these tables.
+                </p>
+                <!-- <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code>CREATE TABLE table_name(
+                    column1 datatype,
+                    column2 datatype,
+                    columnN datatype,
+                 );
+                 SHOW TABLES;
+                 DESC table_name;
+                 RENAME TABLE table_name TO new_table_name;
+                 ALTER TABLE table_name RENAME [TO|AS] new_table_name;
+                 TRUNCATE TABLE table_name;
+                 ALTER TABLE table_name ADD column_name datatype;
+                 ALTER TABLE table_name DROP COLUMN column_name;
+                 ALTER TABLE table_name DROP PRIMARY KEY;
+                 DROP TABLE table_name;
+                 DELETE FROM table_name
+                 WHERE condition;</code>
+            </article>
+        </section>
+        <section id="SQL Contraints">
+            <h2>SQL Contraints</h2>
+            <article>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p> -->
+                <ul>
+                    <li>Not Null</li>
+                    <li>Unique</li>
+                    <li>Default</li>
+                    <li>Primary Key</li>
+                    <li>Foreign Key</li>
+                    <li>Check</li>
+                </ul>
+                <!-- <code>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, modi quam? Consequuntur animi libero ad possimus eos ratione, quod quas rerum atque, assumenda soluta quasi minima repellat eum totam doloremque!</code> -->
+            </article>
+        </section>
+        <section id="SQL Key Concept">
+            <h2>SQL Key Concept</h2>
+            <article>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code>CREATE TABLE table_name(
+                    column1 datatype <b>UNIQUE KEY</b>,
+                    column2 datatype
+                 );
+                 CREATE TABLE table_name(
+                    column1 datatype <b>PRIMARY KEY</b>,
+                    column2 datatype
+                 );
+                 CREATE TABLE table_name (
+                     column1 datatype,
+                     column2 datatype,
+                     CONSTRAINT fk_name 
+                     <b>FOREIGN KEY</b> (column_name) 
+                     REFERENCES referenced_table(referenced_column)
+                 );</code>
+            </article>
+        </section>
+        <section id="Queries">
+            <h2>Queries</h2>
+            <article>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code>INSERT INTO TABLE_NAME (column1, column2...columnN) 
+                    VALUES (value1, value2...valueN);
+                    INSERT INTO TABLE_NAME 
+                    VALUES (value1,value2...valueN);
+                    <br>
+                    SELECT column1, column2, columnN FROM table_name;
+                    SELECT * FROM table_name;
+                    <br>
+                    INSERT INTO table_new 
+                    SELECT (column1, column2, ...columnN) 
+                    FROM table_old;
+                    <br>
+                    UPDATE table_name
+                    SET column1 = value1, column2 = value2,..., columnN = valueN
+                    WHERE [condition];</code>
+            </article>
+        </section>
+        <section id="SQL Clauses">
+            <h2>SQL Clauses</h2>
+            <article>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code>SELECT column1, column2,
+                    FROM table_name
+                    <b>WHERE</b> condition;
+
+                    SELECT <B>DISTINCT</B> column1, column2,..columnN 
+                    FROM table_name;
+
+                    SELECT column-list
+                    FROM table_name
+                    [<B>ORDER BY</B> column1, column2,.. columnN] [ASC | DESC];
+
+                    SELECT column_name(s)
+                    FROM table_name
+                    <b>GROUP BY</b> column_name(s);
+
+                    SELECT column1, column2, aggregate_function(column)
+                    FROM table_name
+                    GROUP BY column1, column2
+                    <B>HAVING</B> condition;</code>
+            </article>
+        </section>
+        <section id="SQL Operators">
+            <h2>SQL Operators</h2>
+            <article>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code>SELECT * FROM table_name
+                    WHERE [condition1] <b>AND</b> [condition2];
+                    WHERE [condition1] <B>OR</B> [condition2];
+                    WHERE student_name <B>LIKE</B> 'K%';
+                    WHERE column_name IN (value1, value2, value3, ...);
+                    <B>CASE</B>
+                       WHEN condition1 THEN statement1,
+                       WHEN condition2 THEN statement2,
+                       WHEN condition THEN statementN
+                       ELSE result
+                    END;
+                    SELECT column_name1, column_name2, column_name3, ... , column_nameN
+                    FROM table_name
+                    WHERE column_nameN <B>IS NULL</B>;
+                    SELECT column1, column2, column3,....columnN
+                    FROM table_name
+                    WHERE column <B>BETWEEN</B> value1 <B>and</B> value2;
+                    SELECT column1, column2....
+                    FROM table_name <B>AS</B> alias_name;</code>
+            </article>
+        </section>
+        <section id="SQL Views">
+            <h2>SQL Views</h2>
+            <article>
+                <p>A view in SQL is a virtual table that is stored in the database with an associated name. It is actually a composition of a table in the form of a predefined SQL query. A view can contain rows from an existing table (all or selected). A view can be created from one or many tables.</p>
+                <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul> -->
+                <code>CREATE VIEW view_name AS
+                    SELECT column1, column2....
+                    FROM table_name
+                    WHERE [condition];
+                    
+                    UPDATE view_name
+                    SET column1 = value1, column2 = value2...., columnN = valueN
+                    WHERE [condition];
+                    
+                    DROP VIEW view_name;</code>
+            </article>
+        </section>
+        <section id="Contact Details">
+            <h2>Contact Details</h2>
+            <article>
+                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul> -->
+                    <li>Name: Aritra Biswas</li>
+                    <li><a href="mailto:aritrabiswas2017@gmail.com" target="_blank">Email ID</a></li>                    
+                    <li><a href="#">Back to Top</a></li>
+                </ul>
+                <!-- <code>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, modi quam? Consequuntur animi libero ad possimus eos ratione, quod quas rerum atque, assumenda soluta quasi minima repellat eum totam doloremque!</code> -->
+            </article>
+        </section>
+        <!-- <section id="Introduction2">
+            <h2>Introduction</h2>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, earum ipsa. Tempore obcaecati quo quia alias molestiae ipsa mollitia libero sequi? Provident quaerat expedita deserunt perferendis quas, esse similique amet.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut excepturi earum quas facilis commodi libero quidem itaque architecto fuga molestiae distinctio iure minus nesciunt, officiis, ab quis incidunt, nostrum suscipit.</p>
+                <ul>
+                    <li>content</li>
+                    <li>anything</li>
+                    <li>should be done</li>
+                </ul>
+                <code>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, modi quam? Consequuntur animi libero ad possimus eos ratione, quod quas rerum atque, assumenda soluta quasi minima repellat eum totam doloremque!</code>
+            </article>
+        </section> -->
+    </main>
+</body>
+</html>
